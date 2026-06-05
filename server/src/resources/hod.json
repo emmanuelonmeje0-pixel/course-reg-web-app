@@ -1,0 +1,21 @@
+[
+   {
+      "id": 1,
+      "dept": "comp",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "hod@gmail.com",
+      "password": "Password12@",
+      "isHod": true
+   },
+    {
+      "id": 2,
+      "dept": "Bio",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "hod1122@gmail.com",
+      "password": "Password12@",
+      "isHod": true
+   }
+   
+]

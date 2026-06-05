@@ -1,0 +1,38 @@
+[
+   {
+      "id": 2,
+      "student_id": "AMUP/sci/comp/123",
+      "dept": "comp",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john_doe@gmail.com",
+      "password": "Password12@"
+   },
+   {
+      "id": 3,
+      "student_id": "AMUP/sci/comp/122",
+      "dept": "comp",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane_doe@gmail.com",
+      "password": "Password12@"
+   },
+   {
+      "id": 1,
+      "student_id": "AMUP/sci/bio/123",
+      "dept": "bio",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john_doe@gmail.com",
+      "password": "Password12@"
+   },
+   {
+      "id": 4,
+      "student_id": "AMUP/sci/bio/122",
+      "dept": "bio",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane_doe@gmail.com",
+      "password": "Password12@"
+   }
+]

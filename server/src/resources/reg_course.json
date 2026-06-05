@@ -1,0 +1,17 @@
+[
+    {
+        "student_id":"AMUP/sci/comp/122",
+        "dept":"Comp","session":"2023",
+        "semester":"first",
+        "courses_offered":[
+            {
+                "course_id":"101","score":60
+            },
+            {
+                "course_id":"102",
+                "score":null}
+        ],
+        "total_course":7,
+        "gpa":null
+    }
+]
