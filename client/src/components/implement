@@ -1,0 +1,202 @@
+import express from "express";
+import fs from "fs";
+
+const port = 8000;
+const app = express();
+
+app.use(express.json());
+
+//declare globally
+const data = fs.readFileSync("./src/constant/user.json", "utf-8");  // reads the mock db. the json file
+const users = JSON.parse(data);
+
+//get, post, delete, patch, put
+/**
+ * 
+ * {
+ *  name: "john doe",
+ *  age: 20,
+ *  country: Nig
+ * }
+ * 
+ * api:
+ * 
+ * {
+ *  name: "john doe",
+ *  age: 20,
+ *  country: Ghana
+ * } 
+ * 
+ * }
+ *  country: Ghana
+ * }
+ * 
+ * req: the data coming from the frontend/client
+ * res: is the data that the api returns to the frontend/client
+ */
+
+
+app.post("/sign-up", (req, res) => {
+    const { firstName, lastName, email, password, userId } = req.body; // data coming from the client
+
+    try {
+
+        if(!email.includes('@')) {
+            res.json({
+                message: "email is not correct",
+                status_code: 200
+            });
+        } 
+            
+        //check if the email is an actual email
+        //check if there's an existing user with this email
+        //validate password
+
+        // hash password - hash will encrypt the password
+        // example: password = Emmanuel@12 after hashing it will be: iudsbnvciudsfuios77923908234nfdwjn
+        //
+
+        /**
+         * 201 - create
+         * 200 - okay
+         * 404 - Not found
+         * 500 - Network error
+         * 501 - Auth error
+         */
+
+        /***
+         * get, getAll, create, update, delete
+         * 
+         * 
+         */
+
+
+        /**
+         * profile - fn, ln, img, email, password
+         * cart - [{phone, price, desc},{computer, price, desc}]
+         * 
+         * 
+         */
+
+        // const data = fs.readFileSync("./src/constant/user.json", "utf-8");  // reads the mock db. the json file
+        // const users = JSON.parse(data); // parse the file, basically changes it to a javascript object
+
+        const exist = users.find((u) => u.email === email) // check if the email exist in the db
+        if(exist){
+            res.json({
+                message: "user already exist",
+                status_code: 200 
+            })
+        }
+
+        const newId = users.length + 1;
+
+        const userData = {
+            id: newId,
+            firstName,
+            lastName,
+            email,
+            password
+        } // js object
+
+        users.push(userData) // push the new data inside the users array
+
+        const finalData = JSON.stringify(
+                            users, null, 
+                            newId
+                        ) // stringifying or in plane eng changing all the data into a json string
+
+        fs.writeFileSync( 
+            "./src/constant/user.json", 
+            finalData
+        ) //this will
+
+        res.json({
+            message: "Successfully signed up",
+            status_code: 201
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.json({
+            message: "Something went wrong",
+            status_code: 500
+        })
+    } 
+})
+
+app.get("/profile/:id", (req, res) => {
+    /** 
+     * the api should return the user details
+     */
+
+    const id = req.params.id
+
+    // number === string
+    // 3 === "3" -  you can compare a string to a number
+    // === will check value and type 
+
+    const user = users.find((u) => u.id == id)
+  
+    if(!user) {
+        res.json({
+            message: "User does not exist",
+            status_code: 404
+        })
+    }
+
+    res.json({
+        message: "Successfully",
+        status_code: 200,
+        data: user
+    })
+
+});
+
+app.post("/login", (req, res) => {
+    /**
+     * check if the user exist in the db - email
+     * if user does not exist return a message 
+     * return res.json - message, code: 200
+     * in your FE check if response.status_code = 200 
+     * save isAuth to sessionstorage
+     * display a sonner saying 
+     */
+
+    //validation
+
+
+    
+})
+
+app.put("/update-profile/:id", (req, res) => {
+    /**
+    * fn, ln, email
+    */
+
+
+
+});
+
+app.delete("/delete-profile/:id", (req, res) => {
+    //
+
+    users.filter((u) => u.
+
+
+
+
+
+    id != id) //it will return an array of data without the provided
+
+});
+
+
+
+
+
+// const response = axios.post('localhost:8000/login', {
+    //    email: email,
+    //    password: password
+    //  })
+    // {message: "successful", status_code: 200, data: {}}
