@@ -11,7 +11,7 @@ import {
   SidebarHeader,
   SidebarProvider,
 } from "../components/ui/sidebar"
-import  DashboardUi  from "../components/DashboardUi";
+import  DashboardUi  from "../components/AdminDashboardUi";
 import { ProfileUi } from "../components/ProfileUi";
 
 

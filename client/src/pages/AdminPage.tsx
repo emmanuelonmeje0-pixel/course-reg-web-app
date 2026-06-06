@@ -8,7 +8,7 @@ import {
   SidebarHeader,
   SidebarProvider,
 } from "../components/ui/sidebar"
-import  DashboardUi  from "../components/DashboardUi";
+import  AdminDashboardUi  from "../components/AdminDashboardUi";
 import { ProfileUi } from "../components/ProfileUi";
 import { useState } from "react";
 
@@ -50,7 +50,7 @@ export default function Admin({isLoading, user} : AdminProps) {
             {
               dash === "dashboard" 
                 ? (
-                      <DashboardUi />
+                      <AdminDashboardUi />
                 ) : (
                   <ProfileUi />
                 )

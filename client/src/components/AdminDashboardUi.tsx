@@ -1,10 +1,9 @@
-import Navbar from "../components/Navbar";
-import { Button } from '../components/ui/Button';
-import React, {  useState } from 'react'
+import { Button } from './ui/Button';
+import React, {  useEffect, useState } from 'react'
 
  
-import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react"
-import { Badge } from "../components/ui/badge"
+import { IconTrendingUp } from "@tabler/icons-react"
+import { Badge } from "./ui/badge"
 import {
   Card,
   CardAction,
@@ -13,7 +12,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../components/ui/card"
+} from "./ui/card"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
@@ -23,24 +22,25 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "../components/ui/chart"
+} from "./ui/chart"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../components/ui/select"
+} from "./ui/select"
 import {
   Table,
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
-} from "../components/ui/table"
+} from "./ui/table"
+import DrawerUi from "./DrawerUi";
+import StudentView from './StudentView';
 
     const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -149,70 +149,47 @@ import {
   },
 } satisfies ChartConfig
 
+export type StudentType = {
+ student_id:string;
+ fn:string;
+ ln:string;
+ id: number;
+ dept:string;
+ email:string;
+}
 
-export default function DashboardUi() {
+export default function AdminDashboardUi() {
+    const [students, setStudents] = useState<StudentType[]>([])
+    const [student, setStudent] = useState<StudentType>()
+    const [timeRange, setTimeRange] = React.useState("90d")
+    const [open, setOpen] = useState<boolean>(false)
+    const filteredData = chartData.filter((item) => {
+      const date = new Date(item.date)
+      const referenceDate = new Date("2024-06-30")
+      let daysToSubtract = 90
+      if (timeRange === "30d") {
+        daysToSubtract = 30
+      } else if (timeRange === "7d") {
+        daysToSubtract = 7
+      }
+      const startDate = new Date(referenceDate)
+      startDate.setDate(startDate.getDate() - daysToSubtract)
+      return date >= startDate
+    })
 
-     const [timeRange, setTimeRange] = React.useState("90d")
-    
-      const filteredData = chartData.filter((item) => {
-        const date = new Date(item.date)
-        const referenceDate = new Date("2024-06-30")
-        let daysToSubtract = 90
-        if (timeRange === "30d") {
-          daysToSubtract = 30
-        } else if (timeRange === "7d") {
-          daysToSubtract = 7
-        }
-        const startDate = new Date(referenceDate)
-        startDate.setDate(startDate.getDate() - daysToSubtract)
-        return date >= startDate
-      })
+    const userId = sessionStorage.getItem("user_id")
+    useEffect(() => {
+      fetch(`http://localhost:8000/get-students/${userId}`)
+        .then((res)=> {
+          if(res.status !== 200) {
+            console.log("Something went wrong")
+          }
 
-      const invoices = [
-  {
-    invoice: "GST 101",
-    paymentStatus: "Paid",
-    totalAmount: " 1",
-    paymentMethod: "Communication skills......",
-  },
-  {
-    invoice: "MTH 101",
-    paymentStatus: "Pending",
-    totalAmount: "3",
-    paymentMethod: "Elementary math.....",
-  },
-  {
-    invoice: "BIO 101",
-    paymentStatus: "Unpaid",
-    totalAmount: "3",
-    paymentMethod: "General Bio....",
-  },
-  {
-    invoice: "BIO 107",
-    paymentStatus: "Paid",
-    totalAmount: "1",
-    paymentMethod: "General Biology lab....",
-  },
-  {
-    invoice: "CHM 101",
-    paymentStatus: "Paid",
-    totalAmount: "3",
-    paymentMethod: "General Chem....",
-  },
-  {
-    invoice: "CHM 107",
-    paymentStatus: "Pending",
-    totalAmount: "1",
-    paymentMethod: "⁠General Chemistry lab....",
-  },
-  {
-    invoice: "PHY 101",
-    paymentStatus: "Unpaid",
-    totalAmount: "1",
-    paymentMethod: "⁠General phy....",
-  },
-]
-
+          return res.json() 
+        })
+        .then((data)=> setStudents(data.data))
+        .catch((err) => console.log(err))
+    },[userId])
 
     return(
         <div>
@@ -427,37 +404,49 @@ export default function DashboardUi() {
             </div>
               
             
-            <div className="w-180 mt-5 ml-110">
-            <Table>
-                <TableCaption>Course Table.</TableCaption>
-                <TableHeader>
-                <TableRow>
-                    <TableHead className="w-[100px]">Course Code</TableHead>
-                    
-                    <TableHead>Course Titles</TableHead>
-                    <TableHead className="text-right">Credit Unit</TableHead>
-                </TableRow>
-                </TableHeader>
-                <TableBody>
-                {invoices.map((invoice) => (
-                    <TableRow key={invoice.invoice}>
-                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                    
-                    <TableCell>{invoice.paymentMethod}</TableCell>
-                    
-                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-                    
-                    </TableRow>
-                ))}
-                </TableBody>
-                <TableFooter>
-                <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">$2,500.00</TableCell>
-                </TableRow>
-                </TableFooter>
-            </Table>
+          <div className="w-180 mt-5 ml-110">
+            { !students.length
+                ? (
+                    <span>No student record at this time</span>
+                ) : (
+                  <Table>
+                    <TableCaption>Student Table.</TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                          <TableHead className="w-[100px]">First Name</TableHead>
+                          <TableHead>Last Name</TableHead>
+                          <TableHead className="text-right">Student Id</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {students.map((student) => (
+                          <TableRow key={student.student_id}>
+                            <TableCell className="font-medium">{student.fn}</TableCell>
+                            <TableCell>{student.ln}</TableCell>
+                            <TableCell className="text-right">{student.student_id}</TableCell>
+                            <TableCell>
+                              <Button
+                                className='bg-black/80 hover:bg-black/50'
+                                onClick={()=> {
+                                  setOpen(true)
+                                  setStudent(student)
+                                }}
+                              >
+                                View
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                      ))}
+                    </TableBody>
+                </Table>
+                )
+            }
+            
         </div>
+
+        <DrawerUi open={open} onOpenChange={()=>setOpen(false)}>
+          <StudentView student={student as StudentType}/>
+        </DrawerUi>
      </div>
     )
 }
