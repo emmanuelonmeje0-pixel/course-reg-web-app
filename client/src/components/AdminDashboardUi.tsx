@@ -1,6 +1,6 @@
 import { Button } from './ui/Button';
 import React, {  useEffect, useState } from 'react'
-
+import AdminDrawer from '../components/AdminDrawerUi';
  
 import { IconTrendingUp } from "@tabler/icons-react"
 import { Badge } from "./ui/badge"
@@ -190,6 +190,8 @@ export default function AdminDashboardUi() {
         .then((data)=> setStudents(data.data))
         .catch((err) => console.log(err))
     },[userId])
+    console.log(students)
+    
 
     return(
         <div>
@@ -405,6 +407,7 @@ export default function AdminDashboardUi() {
               
             
           <div className="w-180 mt-5 ml-110">
+            
             { !students.length
                 ? (
                     <span>No student record at this time</span>
@@ -413,38 +416,44 @@ export default function AdminDashboardUi() {
                     <TableCaption>Student Table.</TableCaption>
                     <TableHeader>
                       <TableRow>
-                          <TableHead className="w-[100px]">First Name</TableHead>
+                          <TableHead className="w-[200px]">First Name</TableHead>
                           <TableHead>Last Name</TableHead>
                           <TableHead className="text-right">Student Id</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {students.map((student) => (
+                      
+                      { students && students.map((student) => (
+                        
                           <TableRow key={student.student_id}>
                             <TableCell className="font-medium">{student.fn}</TableCell>
                             <TableCell>{student.ln}</TableCell>
                             <TableCell className="text-right">{student.student_id}</TableCell>
                             <TableCell>
                               <Button
-                                className='bg-black/80 hover:bg-black/50'
+                                className='bg-black/80 hover:bg-black/50  '
                                 onClick={()=> {
                                   setOpen(true)
                                   setStudent(student)
+                                  
                                 }}
                               >
                                 View
                               </Button>
                             </TableCell>
                           </TableRow>
+                          
                       ))}
                     </TableBody>
                 </Table>
+                
                 )
             }
             
         </div>
-
+                
         <DrawerUi open={open} onOpenChange={()=>setOpen(false)}>
+          
           <StudentView student={student as StudentType}/>
         </DrawerUi>
      </div>

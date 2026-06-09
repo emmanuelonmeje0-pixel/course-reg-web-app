@@ -31,7 +31,7 @@ export default function LoginForm({
   
   const navigate = useNavigate();
   const [isHod, setIsHod] = useState(false)
-   console.log(isHod)
+   
   const handleLogin = async (e: any) => {
     e.preventDefault();
 

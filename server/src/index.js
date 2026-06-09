@@ -252,9 +252,10 @@ app.get("/get-students/:id", (req, res) => {
      * use the user's dept field to fetch the students in the dept
      * return all the student of the dept
      */
+     
 
     const id = req.params.id
-
+    
     if(!id) {
         res.json({
             message: "Please provide user id."
@@ -268,7 +269,7 @@ app.get("/get-students/:id", (req, res) => {
             message: "You are authorized"
         })
     }
-
+      
     const students = users
         .filter(u => u.dept === hod.dept)
         .map(u => ({
