@@ -14,7 +14,7 @@ export default function DrawerUi({open, onOpenChange, children}: DrawerType) {
         onClose={onOpenChange} 
         width={800}
     >
-        {children}
+      {children}
     </Drawer>
   )
 }

@@ -40,9 +40,11 @@ import {
   TableRow,
 } from "./ui/table"
 import DrawerUi from "./DrawerUi";
-import StudentView from './StudentView';
+import StudentView, { type CourseType } from './StudentView';
+import { Dialog, DialogContent } from './ui/dialog';
+import { Input } from './ui/input';
 
-    const chartData = [
+const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
   { date: "2024-04-02", desktop: 97, mobile: 180 },
   { date: "2024-04-03", desktop: 167, mobile: 120 },
@@ -163,6 +165,10 @@ export default function AdminDashboardUi() {
     const [student, setStudent] = useState<StudentType>()
     const [timeRange, setTimeRange] = React.useState("90d")
     const [open, setOpen] = useState<boolean>(false)
+    const [openDialog, setOpenDialog] = useState<boolean>(false)
+    const [selectedCourse, setSelectedCourse] = useState<CourseType | null>(null);
+    const [score, setScore] = useState<number>(0)
+
     const filteredData = chartData.filter((item) => {
       const date = new Date(item.date)
       const referenceDate = new Date("2024-06-30")
@@ -178,6 +184,10 @@ export default function AdminDashboardUi() {
     })
 
     const userId = sessionStorage.getItem("user_id")
+
+    const handleCloseDialog = () => {
+      setOpenDialog(false)
+    }
     useEffect(() => {
       fetch(`http://localhost:8000/get-students/${userId}`)
         .then((res)=> {
@@ -190,8 +200,13 @@ export default function AdminDashboardUi() {
         .then((data)=> setStudents(data.data))
         .catch((err) => console.log(err))
     },[userId])
-    console.log(students)
-    
+
+    useEffect(() => {
+      const handleSetScore = () => {
+        setScore(selectedCourse?.score || 0)
+      }
+      handleSetScore()
+    },[selectedCourse]);
 
     return(
         <div>
@@ -435,7 +450,6 @@ export default function AdminDashboardUi() {
                                 onClick={()=> {
                                   setOpen(true)
                                   setStudent(student)
-                                  
                                 }}
                               >
                                 View
@@ -453,9 +467,54 @@ export default function AdminDashboardUi() {
         </div>
                 
         <DrawerUi open={open} onOpenChange={()=>setOpen(false)}>
-          
-          <StudentView student={student as StudentType}/>
+          <StudentView 
+            student={student as StudentType}
+            setSelectedCourse={setSelectedCourse}
+            setOpenDialog={setOpenDialog}
+            setOpen={setOpen}
+          />
+          <Dialog 
+            open={openDialog}
+            onOpenChange={handleCloseDialog}
+          >
+            <DialogContent className="z-2000">
+              <div className="p-6 max-w-md w-full ">
+                <h3 className="text-lg font-bold mb-2  ">Course Information</h3>
+                {selectedCourse && (
+                  <div className="space-y-2 my-4 mt-20">
+                    <p className="-mt-10"><strong>Course ID:</strong> {selectedCourse.course_id}</p>
+                    <p><strong>Course Title:</strong> {selectedCourse.course_title}</p>
+                    <p><strong>Score:</strong></p>
+                    <div className="-mt-8 ml-14">
+                    <Input className="w-20 "
+                      type="number"
+                      value={score}
+                      onChange={(e)=>setScore(Number(e.target.value))}
+                    />
+                    </div>
+                  </div>
+                )}
+
+                  <div className="flex justify-center items-center gap-2 mt-4">
+                    <Button 
+                      onClick={() => setOpenDialog(false)}
+                      className="px-4 py-2 text-sm text-black bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded"
+                    >
+                      Cancel
+                    </Button>
+                    <Button 
+                      className="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded"
+                    >
+                      Confirm
+                    </Button>
+                  </div>
+
+              </div>
+            </DialogContent>
+          </Dialog>
         </DrawerUi>
+
+        
      </div>
     )
 }

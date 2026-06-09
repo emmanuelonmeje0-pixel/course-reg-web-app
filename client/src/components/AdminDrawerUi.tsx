@@ -1,29 +1,9 @@
-import {
-  Home,
-  Calendar,
-  BookOpen,
-  User,
-  Bell,
-  Settings,
-  GraduationCap,
+import {GraduationCap,
 } from "lucide-react";
 
 export default function AdminDrawer() {
   return (
     <div className="flex min-h-screen bg-slate-100">
-      {/* Sidebar */}
-      <aside className="w-24 bg-gradient-to-b from-indigo-950 to-blue-950 flex flex-col items-center py-8">
-        <div className="w-14 h-14 rounded-full bg-white/10 mb-12" />
-
-        <nav className="flex flex-col gap-8 text-slate-400">
-          <Home size={24} />
-          <Calendar size={24} />
-          <BookOpen size={24} />
-          <User size={24} />
-          <Bell size={24} />
-          <Settings size={24} />
-        </nav>
-      </aside>
 
       {/* Content */}
       <main className="flex-1 p-8">
