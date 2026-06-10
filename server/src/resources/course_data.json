@@ -10,7 +10,7 @@
                         "name": "first_semester",
                         "total_req_courses": 2,
                         "total_elective_courses": 1,
-                        "credit_load": 9,
+                        "total_credit_load": 9,
                         "courses": [
                             {
                                 "course_code": "101", 

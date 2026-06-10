@@ -1,6 +1,5 @@
 import { Button } from './ui/Button';
 import React, {  useEffect, useState } from 'react'
-import AdminDrawer from '../components/AdminDrawerUi';
  
 import { IconTrendingUp } from "@tabler/icons-react"
 import { Badge } from "./ui/badge"
@@ -40,7 +39,7 @@ import {
   TableRow,
 } from "./ui/table"
 import DrawerUi from "./DrawerUi";
-import StudentView, { type CourseType } from './StudentView';
+import StudentView, { type CourseDataType, type CourseType } from './StudentView';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Input } from './ui/input';
 
@@ -162,12 +161,15 @@ export type StudentType = {
 
 export default function AdminDashboardUi() {
     const [students, setStudents] = useState<StudentType[]>([])
-    const [student, setStudent] = useState<StudentType>()
+    const [student, setStudent] = useState<StudentType | null>(null)
     const [timeRange, setTimeRange] = React.useState("90d")
     const [open, setOpen] = useState<boolean>(false)
     const [openDialog, setOpenDialog] = useState<boolean>(false)
     const [selectedCourse, setSelectedCourse] = useState<CourseType | null>(null);
-    const [score, setScore] = useState<number>(0)
+    const [score, setScore] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [courseData, setCourseData] = useState<CourseDataType>();
+    const [cgpa, setCgpa] = useState<string>("0.00");
 
     const filteredData = chartData.filter((item) => {
       const date = new Date(item.date)
@@ -188,6 +190,99 @@ export default function AdminDashboardUi() {
     const handleCloseDialog = () => {
       setOpenDialog(false)
     }
+
+    const handleUpdateScore = () => {
+      setIsLoading(true)
+      fetch(`http://localhost:8000/update-score/${userId}`,{
+        method: "PUT",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          student_id: student?.student_id,
+          session: courseData?.session, 
+          semester: courseData?.semester, 
+          score: score, 
+          course_id: selectedCourse?.course_id
+        })
+      })
+        .then((res)=> {
+          if(res.status !== 200) {
+            setIsLoading(false)
+            console.log("Something went wrong")
+          }
+
+          return console.log("successful")
+        })
+        .then(()=> {
+          handleCloseDialog()
+          handleFetchCourses()
+          getCGPA()
+          setIsLoading(false)
+        })
+        .catch((err) => {
+          setIsLoading(false)
+          console.log(err)
+        })
+    }
+
+    const handleFetchCourses = () => {
+      if(!student?.student_id || !userId) return;
+      
+      const payload = {
+          student_id: student?.student_id,
+          semester: "first",
+          session: "2023",
+          hodId: userId
+      }
+  
+      fetch(`http://localhost:8000/get-reg-courses`, {
+          method: "PUT",
+          headers: {
+              "content-type": "application/json"
+          },
+          body:JSON.stringify(payload)
+      })
+        .then((res)=> {
+        if(res.status !== 200) {
+            console.log("Something went wrong")
+        }
+
+        return res.json() 
+        })
+        .then((data)=> {
+          setCourseData(data.data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    const getCGPA = () => {
+      if(!student?.student_id || !userId) return;
+      
+      const payload = {
+        student_id: student?.student_id
+      }
+  
+      fetch(`http://localhost:8000/cgpa-calculator/${userId}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json"
+        },
+          body:JSON.stringify(payload)
+        })
+          .then((res)=> {
+          if(res.status !== 200) {
+              console.log("Something went wrong")
+          }
+
+          return res.json() 
+          })
+          .then((data)=> {
+            setCgpa(data.data)
+          })
+          .catch((err) => console.log(err))
+    }
+
     useEffect(() => {
       fetch(`http://localhost:8000/get-students/${userId}`)
         .then((res)=> {
@@ -208,6 +303,13 @@ export default function AdminDashboardUi() {
       handleSetScore()
     },[selectedCourse]);
 
+    useEffect(() => {
+      if(!student?.student_id || !userId) return;
+    
+      handleFetchCourses()
+      getCGPA()
+    },[student?.student_id, userId]);
+  
     return(
         <div>
             <div className="  w-110 ml-106"> 
@@ -448,8 +550,8 @@ export default function AdminDashboardUi() {
                               <Button
                                 className='bg-black/80 hover:bg-black/50  '
                                 onClick={()=> {
-                                  setOpen(true)
                                   setStudent(student)
+                                  setOpen(true)
                                 }}
                               >
                                 View
@@ -467,12 +569,15 @@ export default function AdminDashboardUi() {
         </div>
                 
         <DrawerUi open={open} onOpenChange={()=>setOpen(false)}>
-          <StudentView 
-            student={student as StudentType}
-            setSelectedCourse={setSelectedCourse}
-            setOpenDialog={setOpenDialog}
-            setOpen={setOpen}
-          />
+          {student && (
+            <StudentView 
+              student={student}
+              setSelectedCourse={setSelectedCourse}
+              setOpenDialog={setOpenDialog}
+              courseData={courseData}
+              cgpa={cgpa}
+            />
+          )}
           <Dialog 
             open={openDialog}
             onOpenChange={handleCloseDialog}
@@ -503,9 +608,11 @@ export default function AdminDashboardUi() {
                       Cancel
                     </Button>
                     <Button 
+                      onClick={handleUpdateScore}
+                      disabled={isLoading}
                       className="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded"
                     >
-                      Confirm
+                      {isLoading ? 'Saving...' : 'Save'}
                     </Button>
                   </div>
 

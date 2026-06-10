@@ -121,7 +121,6 @@ app.post("/sign-up", (req, res) => {
             /** 
              * the api should return the user details
              */
-             console.log (req.params.id)
             const id = req.params.id
         
             // number === string
@@ -201,19 +200,20 @@ app.post("/hod-login", (req, res) => {
     }
         
     })
-            
+
+const gradeScale = {
+  'A': 5.0, //4.1 - 5.0 = 100 - 70
+  'B': 4.0, //3.1 - 4.0 = 60 - 69
+  'C': 3.0, //2.1 - 3.0 = 59 - 50
+  'D': 2.0, //1.4 - 2.0 = 49 - 40
+  'E': 1.0, //1.0 - 1.5 = 39 - 30
+  'F': 0.0 // 0.0 - 0.9 = < 29
+};
+
 app.put("/update-score/:id", (req, res) => {
     const { student_id, session, semester, score, course_id } = req.body;
-    /** 101, 102
-     * call the course for that user using
-     * student_id, semester, session
-     * check if the course that need score update exist in the reg-course
-     * if the course exist update the score
-     */
-
-    /**
-     * Authorization - permission
-     */
+    const hodId = req.params.id
+    const hod = checkIfHod(Number(hodId))
 
     const reg_course = reg_courses.find((c) => // get all the registered courses of the student
         c.student_id === student_id &&
@@ -222,25 +222,90 @@ app.put("/update-score/:id", (req, res) => {
     ) //[]
 
     // if() - return an error msg if course does not exist
+    // registered courses not found for this student
 
     let course = reg_course.courses_offered.find((c) => c.course_id === course_id) // get the course that we want to change the score
   
     // if() - return an error msg if course does not exist
+    // Course not found
 
     course.score = score;
+    let scale = 0
+    for(let v in gradeScale) {
+        if(score >= 70) {
+            scale = gradeScale['A']
+        } else if(score >= 60) {
+            scale = gradeScale['B']
+        } else if(score >= 50) {
+            scale = gradeScale['C']
+        } else if(score >= 40) {
+            scale = gradeScale['D']
+        } else if(score >= 30) {
+            scale = gradeScale['E']
+        } else {
+            scale = gradeScale['F']
+        }
+    }
+    course.scale = scale;
+
+    let total_quality_point = 0
+    reg_course.courses_offered.map((course) => {
+       const quality_point = course.credit_load * course.scale || 0
+       total_quality_point += quality_point
+    })
+    reg_course.gpa = (total_quality_point/reg_course.total_credit_load).toFixed(2)
 
     const finalData = JSON.stringify(
-        reg_course, null
+        reg_courses, null
     )
 
     fs.writeFileSync( 
-        "./src/constant/reg_course.json", 
+        "./src/resources/reg_courses.json", 
         finalData
     )
 
     res.json({
         message: "Successfully updated score",
         status_code: 200
+    })
+
+})
+
+app.put("/cgpa-calculator/:hodId", (req, res) => {
+    /**
+     * BODMAS
+     * GPA = sum(Course Grade Points X Course Credits) / sum(Total Course Credits)
+     * CGP=score
+     * credit=2
+     * TCG=addition the credit load for the semester
+     * 
+     * 1. multiply the score by the credit "101: score * credit_load; 102: score * credit_load"
+     * 2. sum all the no 1
+     * 3. sum all credit load per semester
+     */
+    const { student_id } = req.body;
+    const hodId = req.params.hodId
+    const hod = checkIfHod(Number(hodId))
+
+    const student_reg_courses = reg_courses.filter((c) => 
+        c.student_id === student_id
+    )
+
+    const totalQualityPoints = student_reg_courses.reduce(
+        (sum, semester) => sum + (semester.gpa * semester.total_credit_load), 0
+    )
+
+    const total_credit = student_reg_courses.reduce(
+        (sum, semester) => sum + semester.total_credit_load, 0
+    )
+  
+    const cgpa = totalQualityPoints / total_credit //cap it to 5.0
+    const finalCgpa = cgpa > 5.0 ? 5.0 : cgpa
+
+    res.json({
+        message: "Successful",
+        status_code: 200,
+        data: cgpa.toFixed(2)
     })
 
 })
@@ -309,7 +374,6 @@ app.put('/get-reg-courses', (req, res) => {
     const student = users.find(u => u.student_id === student_id);
 
     // assignment - if the student is not available
-
     const registered_courses = reg_courses.find(c => 
         c.student_id === student.student_id &&
         c.session === session &&
