@@ -304,11 +304,14 @@ app.put("/cgpa-calculator/:hodId", (req, res) => {
   
     const cgpa = totalQualityPoints / total_credit //cap it to 5.0
     const finalCgpa = cgpa > 5.0 ? 5.0 : cgpa
-
+  console.log("Student Courses:", student_reg_courses);
+console.log("Total Quality Points:", totalQualityPoints);
+console.log("Total Credit:", total_credit);
+console.log("CGPA:", cgpa);
     res.json({
         message: "Successful",
         status_code: 200,
-        data: cgpa.toFixed(2)
+        data: finalCgpa.toFixed(2)
     })
 
 })

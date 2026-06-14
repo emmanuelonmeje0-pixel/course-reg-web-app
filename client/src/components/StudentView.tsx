@@ -15,7 +15,7 @@ type IProps = {
   setSelectedCourse: React.Dispatch<React.SetStateAction<CourseType | null>>;
   setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
   courseData?: CourseDataType;
-  cgpa: string;
+  cgpa?: string | number;
 }
 
 export type CourseDataType = {
@@ -25,7 +25,8 @@ export type CourseDataType = {
     semester: string;
     courses_offered: CourseType[];
     total_course: number,
-    gpa: null
+    gpa: null,
+    
 }
 
 export type CourseType = {
@@ -90,7 +91,7 @@ export default function StudentView({cgpa, student, setSelectedCourse, setOpenDi
           </h2>
 
           <div className="text-6xl font-bold mt-4">
-            {cgpa || "0.00"}
+            {cgpa ?? "0.00"}
           </div>
         </div>
 

@@ -10,7 +10,7 @@
    },
     {
       "id": 2,
-      "dept": "Bio",
+      "dept": "bio",
       "firstName": "John",
       "lastName": "Doe",
       "email": "hod1122@gmail.com",

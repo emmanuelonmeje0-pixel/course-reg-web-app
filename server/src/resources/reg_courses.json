@@ -8,18 +8,18 @@
       {
         "course_id": "101",
         "course_title": "AAAAAA!",
-        "score": 72,
+        "score": 43,
         "credit_load": 3,
         "required": "true",
-        "scale": 5
+        "scale": 2
       },
       {
         "course_id": "102",
         "course_title": "HHHHHH!",
-        "score": 76,
+        "score": 31,
         "credit_load": 3,
         "required": "true",
-        "scale": 5
+        "scale": 1
       },
       {
         "course_id": "103",
@@ -28,10 +28,18 @@
         "credit_load": 3,
         "required": "true",
         "scale": 5
+      },
+      {
+        "course_id": " 103",
+        "course_title": "Communication skills in English",
+        "score": 95,
+        "credit_load": 2,
+        "required": "true",
+        "scale": 5
       }
     ],
     "total_course": 7,
-    "gpa": "5.00",
+    "gpa": "3.78",
     "total_credit_load": 9
   },
   {
@@ -83,10 +91,10 @@
       {
         "course_id": "102",
         "course_title": "PPPPPP",
-        "score": 70,
+        "score": 55,
         "credit_load": 3,
         "required": "true",
-        "scale": 5
+        "scale": 3
       },
       {
         "course_id": "103",
@@ -95,10 +103,18 @@
         "credit_load": 3,
         "required": "true",
         "scale": 4
+      },
+      {
+        "course_id": " 103",
+        "course_title": "Communication skills in English",
+        "score": 78,
+        "credit_load": 2,
+        "required": "true",
+        "scale": 5
       }
     ],
     "total_course": 7,
-    "gpa": "4.67",
+    "gpa": "5.11",
     "total_credit_load": 9
   },
   {
@@ -213,6 +229,58 @@
         "course_title": "C",
         "score": 0,
         "credit_load": 2,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "comp",
+    "session": "2024",
+    "semester": "second",
+    "courses_offered": [
+      {
+        "course_id": "102",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "comp",
+    "session": "2024",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "102",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/122",
+    "dept": "comp",
+    "session": "2024",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "102",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
         "required": "true"
       }
     ]

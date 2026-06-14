@@ -13,6 +13,7 @@ import {
   CardTitle,
 } from "./ui/card"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import DeleteCourseDialog from "./ui/deletCourseDialog"
 
 
 import {
@@ -259,7 +260,9 @@ export default function StudentDashboardUi({user}: Props) {
     //     })
     // }
 
-    
+    const handleDeleteCourse = () => {
+      
+    }
 
     const getCGPA = () => {
       if(!user?.student_id || !userId) return;
@@ -726,12 +729,21 @@ export default function StudentDashboardUi({user}: Props) {
             open={openDialog}
             onOpenChange={handleCloseDialog}
         >
-            <DialogContent className="z-2000">
+            
                 <div className="p-6 max-w-md w-full flex justify-center items-center">
-                    <h3 className="text-lg font-bold mb-2  ">Are you sure you want to delete this course</h3>
+                   <DeleteCourseDialog
+                      open={openDialog}
+                      setOpen={setOpenDialog}
+                      selectedCourse={selectedCourse}
+                      onDelete={handleDeleteCourse}
+                    />
                     {/* have a button here */}
+                    
+                
+                
+ 
                 </div>
-            </DialogContent>
+            
         </Dialog>
 
         
