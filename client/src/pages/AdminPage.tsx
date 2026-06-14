@@ -8,6 +8,13 @@ import {
   SidebarHeader,
   SidebarProvider,
 } from "../components/ui/sidebar"
+import {
+  IconLayoutDashboard,
+  IconUser,
+  IconBook,
+  IconLogout,
+  IconSchool,
+} from "@tabler/icons-react";
 import  AdminDashboardUi  from "../components/AdminDashboardUi";
 import { ProfileUi } from "../components/ProfileUi";
 import { useState } from "react";
@@ -26,122 +33,191 @@ export default function Admin({isLoading, user} : AdminProps) {
         const handleSidebar = (value : string) => {
           setDash(value)
         }
+
+        const handleLogout = () => {
+        sessionStorage.clear();
+        window.location.href = "/";
+};
   return (
 
       
-        <div>
-         
-
+    <div>
+                                
       <div className=" h-400 overflow-hidden ">
-            <Navbar />
-            <h1 className="mt-3 text-2xl">
-             Welcome {user?.firstName}!
-            </h1>
-            
-               
+                      <Navbar />
 
-             
-            
- 
-        <div className="w-180 mt-5 ml-110">
-             
-             <div className=" -ml-110 -mt-2">
-                
-            {
-              dash === "dashboard" 
-                ? (
-                      <AdminDashboardUi />
-                ) : (
-                  <ProfileUi />
-                )
-            }
+                      <h1 className="mt-5 ml-110 text-4xl font-bold text-slate-800">
+                        Welcome back, {user?.firstName}! 👋
+                      </h1>
 
-            </div>
-
-          <div>
-            <SidebarProvider>
-                      <Sidebar className="  absolute mt-32 ml-2 w-100 rounded-4xl h-300  border-r  text-slate-900 font-sans  flex-col">
-              
-                        {/* 1. Header Area */}
-                        <SidebarHeader className="p-4 border-b border-slate-900/10">
-                          <div className="flex items-center gap-2">
-                                <div className="h-6 w-6 rounded bg-slate-900 flex items-center justify-center text-white text-xs font-black">
-                                  CH
-                                </div>
-                                <span className="font-bold tracking-tight text-lg">Course Hub</span>
-                          </div>
-                        </SidebarHeader>
+                        <p className="ml-110 text-slate-500">
+                          Here's an overview of academic performance.
+                        </p>
+                                      
+                                      
+              <div className="w-180 mt-5 ml-110">
+                                      
+              <div className=" -ml-110 -mt-2">
                         
-                        {/* 2. Main Navigation Links */}
-                        <SidebarContent className="px-2 py-4 gap-4">
-                          
-                          {/* Core Section */}
-                          <SidebarGroup>
-                              <div className="px-2 mb-2 text-xs font-bold uppercase tracking-wider text-slate-800/60">
-                                Core
-                              </div>
-                            <div className="space-y-1">
-                                <Button onClick={() => handleSidebar("dashboard")}
-                                  className={`${dash === "dashboard" ? "bg-black text-white" : "bg-transparent text-black"} px-3 py-2 rounded-lg text-sm font-medium transition-all `}>
-                                  <span>Dashboard</span>
-                                </Button>
-                                <Button  onClick={() => handleSidebar("profile")}
-                                    className={`${dash === "profile" ? "bg-black text-white" : "bg-transparent text-black"} px-3 py-2 rounded-lg text-sm font-medium transition-all `}>
-                                    <span>My Profile</span>
-                                  </Button> <br></br>
-                                    { dash === "dashboard" && (
-                                        <Button  onClick={() => handleSidebar("dashboard")}              
-                                        className={`${dash === "dashboard" ? "bg-blue-950 text-white" : "bg-transparent text-black"} px-3 py-2 rounded-lg text-sm font-medium transition-all `}>
-                                        <span>Courses</span>
-                                        </Button>
-                                        )}
-                                    { dash === "profile" && (
-                                        <Button  onClick={() => handleSidebar("profile")}              
-                                        className={`${dash === "profile" ? "bg-red-600 text-white" : "bg-transparent text-black"} px-3 py-2 rounded-lg text-sm font-medium transition-all `}>
-                                        <span>Log Out</span>
-                                        </Button>
-                                        )}
-                            </div>
-                          </SidebarGroup>
+                {
+                  dash === "dashboard" 
+                    ? (
+                          <AdminDashboardUi />
+                    ) : (
+                      <ProfileUi />
+                  )
+                }
 
-                                {/* Management Portals */}
-                                <SidebarGroup>
-                                  {/* <div className="px-2 mb-2 text-xs font-bold uppercase tracking-wider text-slate-800/60">
-                                    Portals
+              </div>
+
+                  <div>
+                    <SidebarProvider>
+                        <Sidebar className="absolute mt-24 ml-4 w-72 h-[85vh] rounded-3xl bg-white border shadow-sm">
+
+                              {/* Logo */}
+                              <SidebarHeader className="p-6 border-b">
+                                <div className="flex items-center gap-3">
+                                  <div className="bg-blue-100 p-2 rounded-xl">
+                                    <IconSchool
+                                      size={28}
+                                      className="text-blue-700"
+                                    />
                                   </div>
-                                  <div className="space-y-1">
-                                    <a href="/dashboard/hod" className="items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-900/10 active:scale-[0.98]">
-                                      <span>HOD Dashboard</span>
-                                      <span className="text-[10px] bg-slate-900 text-white px-1.5 py-0.5 rounded font-semibold">Admin</span>
-                                    </a>
-                                    <a href="/dashboard/student" className=" items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-900/10 active:scale-[0.98]">
-                                      <span>Student Portal</span>
-                                    </a>
-                                  </div> */}
-                                </SidebarGroup>
 
-                              </SidebarContent>
-                              
-                              {/* 3. Sidebar Footer */}
-                              <SidebarFooter className="p-4 border-t border-slate-900/10 bg-slate-900/5">
-                                <div className="flex flex-col gap-1">
-                                    <div className="text-xs font-semibold text-slate-800 truncate">
-                                      Onmeje Owoicho Emmanuel
-                                    </div>
-                                    <div className="text-[10px] text-slate-700/80 font-mono tracking-tight truncate">
-                                      AMUP/comp/sci/300/22
-                                    </div>
+                                  <div>
+                                    <h2 className="text-xl font-bold text-blue-950">
+                                      Course
+                                    </h2>
+
+                                    <p className="-mt-1 text-orange-500 font-semibold">
+                                      Hub
+                                    </p>
+                                  </div>
                                 </div>
-                              </SidebarFooter>
-                              
-                      </Sidebar>
-              </SidebarProvider>
-          </div>
+                              </SidebarHeader>
 
+                              {/* Menu */}
+                            <SidebarContent className="px-4 py-5">
 
-        </div>
-      </div>
-                          
-    </div>
-  )
-}
+                                <p className="text-xs uppercase text-gray-400 font-bold mb-3">
+                                  Core
+                                </p>
+
+                                <div className="space-y-3">
+
+                                  {/* Dashboard */}
+                                  <Button
+                                    onClick={() => handleSidebar("dashboard")}
+                                    className={`
+                                      w-full justify-start gap-3 rounded-xl py-6
+                                      ${
+                                        dash === "dashboard"
+                                          ? "bg-blue-900 text-white"
+                                          : "bg-transparent text-slate-700 hover:bg-slate-100"
+                                      }
+                                    `}
+                                  >
+                                    <IconLayoutDashboard size={20} />
+                                    Dashboard
+                                  </Button>
+
+                                  {/* Profile */}
+                                  <Button
+                                    onClick={() => handleSidebar("profile")}
+                                    className={`
+                                      w-full justify-start gap-3 rounded-xl py-6
+                                      ${
+                                        dash === "profile"
+                                          ? "bg-blue-900 text-white"
+                                          : "bg-transparent text-slate-700 hover:bg-slate-100"
+                                      }
+                                    `}
+                                  >
+                                    <IconUser size={20} />
+                                    My Profile
+                                  </Button>
+
+                                  {/* Courses */}
+                                  <Button
+                                    className="
+                                    w-full justify-start gap-3 rounded-xl py-6
+                                    bg-transparent text-slate-700
+                                    hover:bg-slate-100
+                                    "
+                                  >
+                                    <IconBook size={20} />
+                                    Courses
+                                  </Button>
+                                </div>
+
+                                {/* Bottom Card */}
+                              <div className="mt-12 bg-slate-50 border rounded-2xl p-5">
+
+                                  <div className="bg-blue-100 w-fit p-3 rounded-xl">
+                                    <IconSchool
+                                      size={32}
+                                      className="text-blue-700"
+                                    />
+                                    </div>
+
+                                      <h3 className="font-bold text-blue-950 mt-4">
+                                        Unlock Your Potential
+                                      </h3>
+
+                                      <p className="text-sm text-gray-500 mt-2">
+                                        Explore courses, track progress and
+                                        achieve your academic goals.
+                                      </p>
+
+                                    <Button className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl">
+                                      Browse Courses
+                                    </Button>
+                              </div>
+                            </SidebarContent>
+
+                              {/* Footer */}
+                            <SidebarFooter className="border-t p-4">
+
+                              <div className="flex items-center gap-3">
+
+                              <div className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold">
+                                {user?.firstName?.charAt(0)}
+                              </div>
+
+                                  <div className="flex-1">
+                                      <p className="font-semibold text-sm">
+                                        {user?.firstName}
+                                      </p>
+
+                                      <p className="text-xs text-gray-500">
+                                        Administrator
+                                      </p>
+                                  </div>
+
+                                  <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    onClick={handleLogout}
+                                  >
+                                    <IconLogout size={18} />
+                                  </Button>
+
+                              </div>
+
+                            </SidebarFooter>
+
+                              </Sidebar>
+
+                        </SidebarProvider>
+                                                    
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              )
+
+            }

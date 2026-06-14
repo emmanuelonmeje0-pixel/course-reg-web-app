@@ -10,6 +10,16 @@ import { Link } from "react-router-dom";
   AvatarGroup,
   AvatarGroupCount,
 } from "../components/ui/avatar"
+import {
+  IconUser,
+  IconId,
+  IconEye,
+  IconSchool,
+  IconTrophy,
+  IconBook,
+  IconStar
+
+} from "@tabler/icons-react";
 
 type NavbarProps = {
   handleShowLogin?: ()=>void;
@@ -30,10 +40,10 @@ const Navbar = ( {handleShowLogin}: NavbarProps) => {
         <div className="flex items-center gap-4">
             
                         {isAuth ? (
-                          <Avatar>
-                <AvatarImage src="/vite.svg" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
+                           <IconSchool
+                                      size={28}
+                                      className="text-blue-700"
+                                    />
                     ) : (
                       <>
                       <Button className='bg-white text-black'

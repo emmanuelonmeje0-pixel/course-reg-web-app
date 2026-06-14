@@ -358,5 +358,1318 @@
                 ]
             }
         ]
+    },
+    {
+        "department": "computer science",
+        "dpt_info": [
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "total_credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "second_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "third_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "fourth_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },{
+        "department": "computer science",
+        "dpt_info": [
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "total_credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "second_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "third_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "fourth_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },{
+        "department": "Micro Biology",
+        "dpt_info": [
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "total_credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "GST 101", 
+                                "course_name": "Communication skills in English", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MTH 101", 
+                                "course_name": "Elementary mathematics I", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "BIO 101", 
+                                "course_name": "General Biology I", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BIO 107", 
+                                "course_name": "General Biology laboratory I", 
+                                "credit_load": 1,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "CHM 101", 
+                                "course_name": "General Chemistry I", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "CHM 107", 
+                                "course_name": "General Chemistry laboratory I", 
+                                "credit_load": 1,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "PHY 101", 
+                                "course_name": "General physics I", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "PHY 107", 
+                                "course_name": "⁠General physics laboratory I", 
+                                "credit_load": 1,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 113", 
+                                "course_name": "Nigerian people and culture", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 107", 
+                                "course_name": "⁠Introduction to computer", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 171", 
+                                "course_name": "⁠Ethics", 
+                                "credit_load": 0,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 111", 
+                                "course_name": "⁠History and Philosophy of science", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 109", 
+                                "course_name": "⁠Use of Library study skills and ICT", 
+                                "credit_load": 2,
+                                "required": "true"
+                            }
+                            
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "GST 101", 
+                                "course_name": "Communication skills in English", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MTH 102", 
+                                "course_name": "Elementary mathematics II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "BIO 102", 
+                                "course_name": "General Biology II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "BIO 108", 
+                                "course_name": "General Biology practical II", 
+                                "credit_load": 1,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "CHM 102", 
+                                "course_name": "General Chemistry II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "CHM 108", 
+                                "course_name": "General Chemistry Practical II", 
+                                "credit_load": 2,
+                                "required": "true"
+                            }, 
+                            {
+                                "course_code": "PHY 102", 
+                                "course_name": "⁠General physics II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "PHY 108", 
+                                "course_name": "General physics practical II", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 122", 
+                                "course_name": "⁠Introduction to microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 106", 
+                                "course_name": "Introduction to Entrepreneurship", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 105", 
+                                "course_name": "Introduction to Christian theology", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "GST 102", 
+                                "course_name": "Philosophy, logic and human existence", 
+                                "credit_load": 2,
+                                "required": "true"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "first_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "second_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "GST 213", 
+                                "course_name": "African People and Culture", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 271", 
+                                "course_name": "Ethics 2", 
+                                "credit_load": 0,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 207", 
+                                "course_name": "Introduction to Computer", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 201", 
+                                "course_name": "General Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 231", 
+                                "course_name": "Basic Techniques in Microbiology", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "CHM 233", 
+                                "course_name": "Polyfunctional Chemistry", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "CHM 257", 
+                                "course_name": "Physical Chemistry", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BCH 201", 
+                                "course_name": "General Biochemistry", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BIO 201", 
+                                "course_name": "Introductory Genetics", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "TET 211", 
+                                "course_name": "Introduction to food science", 
+                                "credit_load": 3,
+                                "required": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "GST 205", 
+                                "course_name": "Introduction to Christian theology", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 222", 
+                                "course_name": "Peace studies and conflict resolution", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 223", 
+                                "course_name": "Introduction to Entrepreneurship", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 218", 
+                                "course_name": "French", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "CHM 202", 
+                                "course_name": "Organic chemistry II", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                             {
+                                "course_code": "CHM 212", 
+                                "course_name": "Basic inorganic chemistry", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BIO 212", 
+                                "course_name": "Introductory ecology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 202", 
+                                "course_name": "General microbiology II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BOT 242", 
+                                "course_name": "General techniques in botany", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BCH 202", 
+                                "course_name": "Biochemistry II", 
+                                "credit_load": 3,
+                                "required": "true"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "third_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "MCB 305", 
+                                "course_name": "Fungi of medical, food and industrial importance", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 325", 
+                                "course_name": "Soil microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "GST 311", 
+                                "course_name": "Entrepreneurial advance skills", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 307", 
+                                "course_name": "Immunology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 309", 
+                                "course_name": "Food microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "BOT 351", 
+                                "course_name": "Plant disease", 
+                                "credit_load": 3,
+                                "required": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "STA 301", 
+                                "course_name": "Statistics in research", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 398", 
+                                "course_name": "⁠entrepreneurship and microbiology", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 324", 
+                                "course_name": "Microbial ecology", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "MCB 326", 
+                                "course_name": "Introductory virology", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 322", 
+                                "course_name": "Bacterial Deviersity", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MaCB 328", 
+                                "course_name": "⁠BIODETERIORATION", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "ZOO 312", 
+                                "course_name": "⁠Biology of tropical parasites", 
+                                "credit_load": 3,
+                                "required": "true"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "session": "fourth_year",
+                "semester": [
+                    {
+                        "id": 1,
+                        "name": "first_semester",
+                        "total_req_courses": 2,
+                        "total_elective_courses": 1,
+                        "credit_load": 9,
+                        "courses": [
+                            {
+                                "course_code": "ZOO 412", 
+                                "course_name": "Principle of Parasitology", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 403", 
+                                "course_name": "Pharmaceutical Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "MCB 423", 
+                                "course_name": "Industrial Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 401", 
+                                "course_name": "Assay Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 425", 
+                                "course_name": "Pthogenic Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 425", 
+                                "course_name": "Environmental Microbiology", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 431", 
+                                "course_name": "Petroleum Microbiology", 
+                                "credit_load": 2,
+                                "required": "true"
+                            },
+                             {
+                                "course_code": "MCB 405", 
+                                "course_name": "Principle of Epidymology & Public Health", 
+                                "credit_load": 2,
+                                "required": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "second_semester",
+                        "total_req_courses": 3,
+                        "total_elective_courses": 1,
+                        "credit_load": 13,
+                        "courses": [
+                            {
+                                "course_code": "101", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "102", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "103", 
+                                "course_name": "A", 
+                                "credit_load": 3,
+                                "required": "false"
+                            },
+                            {
+                                "course_code": "104", 
+                                "course_name": "B", 
+                                "credit_load": 4,
+                                "required": "true"
+                            },
+                            {
+                                "course_code": "105", 
+                                "course_name": "C", 
+                                "credit_load": 2,
+                                "required": "false"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]

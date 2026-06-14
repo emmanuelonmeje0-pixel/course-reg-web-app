@@ -14,6 +14,7 @@ import {
 } from "./ui/card"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
+
 import {
   ChartContainer,
   ChartLegend,
@@ -38,6 +39,16 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table"
+import {
+  IconUser,
+  IconId,
+  IconEye,
+  IconSchool,
+  IconTrophy,
+  IconBook,
+  IconStar
+
+} from "@tabler/icons-react";
 import DrawerUi from "./DrawerUi";
 import StudentView, { type CourseDataType, type CourseType } from './StudentView';
 import { Dialog, DialogContent } from './ui/dialog';
@@ -312,99 +323,154 @@ export default function AdminDashboardUi() {
   
     return(
         <div>
-            <div className="  w-110 ml-106"> 
-                <Card className="@container/card ">
-                <CardHeader>
-                    <CardDescription>Current CGPA:</CardDescription>
-                    <CardTitle className="text-2xl font-semibold  @[250px]/card:text-3xl">
-                        4.43
-                    </CardTitle>
-                    <CardAction>
-                    <Badge variant="outline">
-                    <IconTrendingUp />
-                    +12.5%
-                    </Badge>
-                    </CardAction>
-                    </CardHeader>
-                    <CardFooter className="flex-col items-start gap-1.5 text-sm">
-                    <div className="line-clamp-1 flex gap-2 font-medium">
-                        Excellent Performance <IconTrendingUp className="size-4" />
-                    </div>
-                    <div className="text-muted-foreground">
-                        Academic Performance Remains Strong
-                    </div>
-                    </CardFooter>
-                </Card> 
-            </div>
-            <div className=" w-110 ml-220 -mt-46">
-                <Card className="@container/card ">
-                    <CardHeader>
-                    <CardDescription>Highest CGPA In The Department:</CardDescription>
-                    <CardTitle className="text-2xl font-semibold  @[250px]/card:text-3xl">
-                        4.71
-                    </CardTitle>
-                    <CardAction>
-                    <Badge variant="outline">
-                    <IconTrendingUp />
-                        -20%
-                    </Badge>
-                    </CardAction>
-                    </CardHeader>
-                    <CardFooter className="flex-col items-start gap-1.5 text-sm">
-                        <div className="line-clamp-1 flex gap-2 font-medium">
-                            Highest In The Department <IconTrendingUp className="size-4" />
-                        </div>
-                        <div className="text-muted-foreground">
-                            Current Departmental Record
-                        </div>
-                    </CardFooter>
-                </Card>
-            </div>
-            <div  className=" w-110 ml-106 mt-6">
-                <Card className="@container/card">
-                    <CardHeader>
-                    <CardDescription>The Course You Have The Highest Score:</CardDescription>
-                    <CardTitle className="text-2xl font-semibold  @[250px]/card:text-3xl">
-                            80
-                    </CardTitle>
-                    <CardAction>
-                    <Badge variant="outline">
-                    <IconTrendingUp />
-                            +12.5%
-                    </Badge>
-                    </CardAction>
-                    </CardHeader>
-                    <CardFooter className="flex-col items-start gap-1.5 text-sm">
-                            <div className="line-clamp-1 flex gap-2 font-medium">
-                                CSC402: ORGANIZATION OF PROGRAMMING LANGUAGES <IconTrendingUp className="size-4" />
-                            </div>
-                            <div className="text-muted-foreground">Excellent Understanding Of Course Content</div>
-                            </CardFooter>
-                </Card>
-            </div>
-            <div  className="  w-110  ml-220 -mt-50">
-                <Card className="@container/card">
-                    <CardHeader>
-                    <CardDescription>Highest Score For The Course:</CardDescription>
-                    <CardTitle className="text-2xl font-semibold  @[250px]/card:text-3xl">
-                            89
-                    </CardTitle>
-                    <CardAction>
-                    <Badge variant="outline">
-                    <IconTrendingUp />
-                            +4.5%
-                    </Badge>
-                    </CardAction>
-                    </CardHeader>
-                    <CardFooter className="flex-col items-start gap-1.5 text-sm">
-                            <div className="line-clamp-1 flex gap-2 font-medium">
-                                Steady performance increase <IconTrendingUp className="size-4" />
-                            </div>
-                            <div className="text-muted-foreground">Class Performance Remains competitive</div>
-                    </CardFooter>
-                </Card>
-            </div>
-    
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 ml-110 mt-5 w-[calc(100%-28rem)]">
+           {/* CGPA */}
+  <Card className="shadow-sm border-0 rounded-2xl w-100">
+    <CardHeader className="flex flex-row items-center justify-between">
+      <div>
+        <CardDescription>Current CGPA</CardDescription>
+        <CardTitle className="text-4xl font-bold text-slate-800">
+          4.43
+        </CardTitle>
+      </div>
+
+      <div className="bg-blue-100 p-3 rounded-xl">
+        <IconSchool
+          size={28}
+          className="text-blue-700"
+        />
+      </div>
+    </CardHeader>
+
+    <CardContent>
+      <Badge className="bg-green-100 text-green-700">
+        <IconTrendingUp size={14} />
+        +12.5%
+      </Badge>
+
+      <p className="font-semibold mt-4">
+        Excellent Performance
+      </p>
+
+      <p className="text-muted-foreground text-sm">
+        Academic Performance Remains Strong
+      </p>
+    </CardContent>
+  </Card><br></br>
+
+  {/* Highest CGPA */}
+  <Card className="shadow-sm border-0 rounded-2xl w-100 ml-20">
+    <CardHeader className="flex flex-row items-center justify-between">
+      <div>
+        <CardDescription>
+          Highest CGPA In Department
+        </CardDescription>
+
+        <CardTitle className="text-4xl font-bold">
+          4.71
+        </CardTitle>
+      </div>
+
+      <div className="bg-orange-100 p-3 rounded-xl">
+        <IconTrophy
+          size={28}
+          className="text-orange-600"
+        />
+      </div>
+    </CardHeader>
+
+    <CardContent>
+      <Badge className="bg-red-100 text-red-700">
+        -20%
+      </Badge>
+
+      <p className="font-semibold mt-4">
+        Department Record
+      </p>
+
+      <p className="text-muted-foreground text-sm">
+        Current Departmental Record
+      </p>
+    </CardContent>
+  </Card><br></br>
+
+  {/* Best Course */}
+  <Card className="shadow-sm border-0 rounded-2xl w-100 ">
+    <CardHeader className="flex flex-row items-center justify-between">
+      <div>
+        <CardDescription>
+          Highest Course Score
+        </CardDescription>
+
+        <CardTitle className="text-4xl font-bold">
+          80
+        </CardTitle>
+      </div>
+
+      <div className="bg-green-100 p-3 rounded-xl">
+        <IconBook
+          size={28}
+          className="text-green-600"
+        />
+      </div>
+    </CardHeader>
+
+    <CardContent>
+      <Badge className="bg-green-100 text-green-700">
+        +12.5%
+      </Badge>
+
+      <p className="font-semibold mt-4">
+        CSC402 Programming Languages
+      </p>
+
+      <p className="text-muted-foreground text-sm">
+        Excellent Understanding
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Highest Score */}
+  <Card className="shadow-sm border-0 rounded-2xl w-100 ml-66">
+    <CardHeader className="flex flex-row items-center justify-between">
+      <div>
+        <CardDescription>
+          Highest Score For Course
+        </CardDescription>
+
+        <CardTitle className="text-4xl font-bold">
+          89
+        </CardTitle>
+      </div>
+
+      <div className="bg-purple-100 p-3 rounded-xl">
+        <IconStar
+          size={28}
+          className="text-purple-600"
+        />
+      </div>
+    </CardHeader>
+
+    <CardContent>
+      <Badge className="bg-green-100 text-green-700">
+        +4.5%
+      </Badge>
+
+      <p className="font-semibold mt-4">
+        Steady Performance Increase
+      </p>
+
+      <p className="text-muted-foreground text-sm">
+        Class Performance Remains Competitive
+      </p>
+    </CardContent>
+  </Card>
+  </div>
+
+
+
+
+            
             <div>
                 <Card className="pt-0 w-220 mt-8 ml-110">
                     <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
@@ -533,9 +599,22 @@ export default function AdminDashboardUi() {
                     <TableCaption>Student Table.</TableCaption>
                     <TableHeader>
                       <TableRow>
-                          <TableHead className="w-[200px]">First Name</TableHead>
-                          <TableHead>Last Name</TableHead>
-                          <TableHead className="text-right">Student Id</TableHead>
+                        <TableHead>
+                            <div className="flex items-center gap-2">
+                              <IconUser size={16}/>
+                              Last Name
+                            </div>
+                        </TableHead>
+                          <TableHead>
+                            <div className="flex items-center gap-2">
+                              <IconUser size={16}/>
+                              Last Name
+                            </div>
+                          </TableHead>
+                          <TableHead className="text-right ">
+                            
+                            Student ID
+                            </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -548,12 +627,17 @@ export default function AdminDashboardUi() {
                             <TableCell className="text-right">{student.student_id}</TableCell>
                             <TableCell>
                               <Button
-                                className='bg-black/80 hover:bg-black/50  '
+                                className=' bg-blue-900
+                                  hover:bg-blue-800
+                                  rounded-xl'
+                                   
                                 onClick={()=> {
                                   setStudent(student)
                                   setOpen(true)
                                 }}
+                                
                               >
+                                 <IconEye size={18}/>
                                 View
                               </Button>
                             </TableCell>
