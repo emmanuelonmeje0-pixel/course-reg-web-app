@@ -7,7 +7,8 @@ const port = 8000;
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://127.0.0.1:5173"
   ],
 
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
@@ -60,6 +61,8 @@ const hod_data = fs.readFileSync("./src/resources/hod.json", "utf-8");  // reads
 const hods = JSON.parse(hod_data);
 const reg_data = fs.readFileSync("./src/resources/reg_courses.json", "utf-8");  // reads reg course  mock db. the json file
 const reg_courses = JSON.parse(reg_data);
+const courses_data = fs.readFileSync("./src/resources/course_data.json", "utf-8");  // reads reg course  mock db. the json file
+const courses_to_reg = JSON.parse(courses_data);
 
 app.post("/sign-up", (req, res) => {
     const { firstName, lastName, email, password, userId } = req.body; // data coming from the client
@@ -117,42 +120,42 @@ app.post("/sign-up", (req, res) => {
             } 
         })
         
-        app.get("/profile/:id", (req, res) => {
-            /** 
-             * the api should return the user details
-             */
-            const id = req.params.id
-        
-            // number === string
-            // 3 === "3" -  you can compare a string to a number
-            // === will check value and type 
-                    
-            const user = users.find((u) => u.id == Number(id))
-          
-            if(!user) {
-              return  res.json({
-                    message: "User does not exist",
-                    status_code: 404
-                   
-                })
+app.get("/profile/:id", (req, res) => {
+    /** 
+     * the api should return the user details
+     */
+    const id = req.params.id
 
-            }
+    // number === string
+    // 3 === "3" -  you can compare a string to a number
+    // === will check value and type 
+            
+    const user = users.find((u) => u.id == Number(id))
+    
+    if(!user) {
+        return  res.json({
+            message: "User does not exist",
+            status_code: 404
+            
+        })
 
-                const userData = {
-                fn: user.firstName,
-                ln: user.lastName,
-                email: user.email,
-                id: user.id,
-                
-                
-              }
-            res.json({
-                message: "Successfully",
-                status_code: 200,
-                data: userData
-            })
-        
-        });
+    }
+
+        const userData = {
+        fn: user.firstName,
+        ln: user.lastName,
+        email: user.email,
+        id: user.id,
+        student_id: user.student_id,
+        dept: user.dept
+        }
+    res.json({
+        message: "Successfully",
+        status_code: 200,
+        data: userData
+    })
+
+});
     
 app.post("/student-login", (req, res) => {
     //validation
@@ -389,6 +392,121 @@ app.put('/get-reg-courses', (req, res) => {
 
 })
 
+app.put('/get-reg-student-courses', (req, res) => {
+
+    const { session, semester, student_id } = req.body
+
+    const student = users.find(u => u.student_id === student_id);
+
+    // assignment - if the student is not available
+    const registered_courses = reg_courses.find(c => 
+        c.student_id === student.student_id &&
+        c.session === session &&
+        c.semester === semester
+    )
+
+    // assignment - if the registered_courses is not available
+
+    res.json({
+        message: 'Successful',
+        data: registered_courses
+    })
+
+})
+
+app.put('/get-courses-by-session', (req, res) => {
+    const {session, semester, dept} = req.body;
+
+    const dept_data = courses_to_reg.find(d => d.department === dept)
+    if (!dept_data) {
+        return res.status(404).json({
+            message: "Dept data not found",
+            data: []
+        });
+    }
+
+    const sessionData = dept_data.dpt_info.find(d => d.session === session)
+    if (!sessionData) {
+        return res.status(404).json({
+            message: "Session Data not found",
+            data: []
+        });
+    }
+
+    const semester_data = sessionData.semester.find(d => d.name === semester)
+    if (!semester_data) {
+        return res.status(404).json({
+            message: "semester Data not found",
+            data: []
+        });
+    }
+
+    return res.status(200).json({
+        message: "Successful",
+        data: semester_data.courses
+    });
+})
+
+app.post("/register-course", (req, res) => {
+  const {
+    student_id,
+    session,
+    dept,
+    semester,
+    course_id,
+    course_title,
+    credit_load
+  } = req.body;
+
+  let reg_course = reg_courses.find((c) =>
+    c.student_id === student_id &&
+    c.session === session &&
+    c.semester === semester
+  );
+
+  if (!reg_course) {
+    reg_course = {
+      student_id,
+      dept,
+      session,
+      semester,
+      courses_offered: []
+    };
+
+    reg_courses.push(reg_course);
+  }
+
+  const course = reg_course.courses_offered.find(
+    (c) => c.course_id === course_id
+  );
+
+  if (course) {
+    return res.status(400).json({
+      message: "Already registered"
+    });
+  }
+
+  reg_course.courses_offered.push({
+    course_id,
+    course_title,
+    score: 0,
+    credit_load,
+    required: "true"
+  });
+
+  const finalData = JSON.stringify(reg_courses, null, 2);
+
+  fs.writeFileSync(
+    "./src/resources/reg_courses.json",
+    finalData
+  );
+
+  return res.status(200).json({
+    message: "Course registered successfully",
+    status_code: 200,
+    data: reg_course
+  });
+});
 
 app.listen(port, () =>{
     console.log(`server is running on port: ${port}`)

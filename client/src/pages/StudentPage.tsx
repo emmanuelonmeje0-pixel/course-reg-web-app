@@ -1,17 +1,15 @@
 import Navbar from "../components/Navbar";
 import { Button } from '../components/ui/Button';
-import React, {  useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarHeader,
   SidebarProvider,
 } from "../components/ui/sidebar"
-import  DashboardUi  from "../components/AdminDashboardUi";
 import { ProfileUi } from "../components/ProfileUi";
 import {
   IconLayoutDashboard,
@@ -20,6 +18,7 @@ import {
   IconLogout,
   IconSchool,
 } from "@tabler/icons-react";
+import StudentDashboardUi, { type UserType } from "../components/StudentDashboardUi";
 
 
 type CourseType = {
@@ -29,27 +28,13 @@ type CourseType = {
     id: number
 }[]
 
-
-
-type StudentProps = {
-   isLoading?: boolean
-   user?: {
-    firstName : string
-   } | null;
-}
 //infer type for user
-export default function Student({isLoading, user}: StudentProps) {
-    const [courses, setCourses] = useState<CourseType>([]);
-    const [dash, setDash] = useState<string>("dashboard")
+export default function Student(){
+    const [dash, setDash] = useState<string>("dashboard");
+    const [user, setUser] = useState<UserType>();
 
     const handleSidebar = (value : string) => {
-       setDash(value)
-     }
-
-    const getCourses = async () => {
-        const res = await fetch("/get-courses")
-        const data = await res.json()
-        setCourses(data)
+      setDash(value)
     }
 
     const handleLogout = () => {
@@ -58,45 +43,45 @@ export default function Student({isLoading, user}: StudentProps) {
     }
     const navigate = useNavigate()
 
+    useEffect(() => {
+      const profile = async () => {
+        try {
+            // setIsLoading(true)
+            const user_id = sessionStorage.getItem("user_id");
+            const response = await fetch(`http://localhost:8000/profile/${user_id}`, { method: "GET" })
+            const data = await response.json()
+            setUser(data.data);
 
+        return data;
+        } catch (error) {
+            console.log(error)
+            // setIsLoading(false)
+        }
+          
+      }
 
-
- 
-  
-
+      profile()
+    },[]);
+    
   return (
-
-  
-            
         <div className=" h-400 overflow-hidden ">
-                          <Navbar />
+          <Navbar />
 
                           <h1 className="mt-5 ml-110 text-4xl font-bold text-slate-800">
-                              Welcome back, {user?.firstName}! 👋
+                              Welcome back, {user?.fn}! 👋
                           </h1>
 
                             <p className="ml-110 text-slate-500">
                               Here's an overview of academic performance.
                             </p>
-                          {
-                              courses.map((course) => (
-                                  <div key={course.id}>
-                                      <h1>{course.title}</h1>
-                                  </div>
-                              ))
-                          }
-
-             
-            
- 
                 <div className="w-180 mt-5 ml-110">
              
                             <div className=" -ml-110 -mt-2">
                             
                               {
-                                dash === "dashboard" 
+                                dash === "dashboard"
                                   ? (
-                                        <DashboardUi />
+                                    <StudentDashboardUi user={user}/>
                                   ) : (
                                     <ProfileUi />
                                   )
@@ -215,12 +200,12 @@ export default function Student({isLoading, user}: StudentProps) {
                                   <div className="flex items-center gap-3">
 
                                     <div className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold">
-                                      {user?.firstName?.charAt(0)}
+                                      {user?.fn?.charAt(0)}
                                     </div>
 
                                     <div className="flex-1">
                                       <p className="font-semibold text-sm">
-                                        {user?.firstName}
+                                        {user?.fn}
                                       </p>
 
                                       <p className="text-xs text-gray-500">

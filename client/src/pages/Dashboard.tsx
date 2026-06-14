@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Student from './StudentPage';
 import Admin from './AdminPage';
+import type { UserType } from '../components/StudentDashboardUi';
 
 export default function DashBoard() {
     const [type, setType] = useState<string>("student")
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<UserType>();
     const [isLoading, setIsLoading] = useState(false)
     // const [error, setErr] = useState(false)
 
@@ -32,11 +33,9 @@ export default function DashBoard() {
 
         profile()
     },[]);
-    console.log(user,"user_data")
 
     useLayoutEffect(() => {
         const check = () => {
-            console.log("user_data")
             const user_type = sessionStorage.getItem("user_type")
             setType(user_type as string)
         }
@@ -47,9 +46,9 @@ export default function DashBoard() {
     return (
         <div>
             {
-                type === "hod" 
+                type === "hod"
                     ? (<Admin isLoading={isLoading} user={user} />) 
-                    : (<Student isLoading={isLoading} user={user} />)
+                    : (<Student />)
             }
         </div>
     )

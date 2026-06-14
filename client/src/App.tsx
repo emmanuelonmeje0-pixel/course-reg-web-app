@@ -9,6 +9,7 @@ import StudentPage from './pages/StudentPage';
 
 import ProfilePage from './pages/ProfilePage'
 import Admin from './pages/AdminPage';
+import DashBoard from './pages/Dashboard';
 
 
 
@@ -44,21 +45,21 @@ function App() {
 
        
          <Route
-          path='/dashboard/hod'
+          path='/dashboard'
           element={
             <ProtectedRoute>
-              <Admin />
+              <DashBoard />
             </ProtectedRoute>
           }
        /> 
-        <Route
+        {/* <Route
           path='/dashboard/student'
           element={
             <ProtectedRoute>
               <StudentPage />
             </ProtectedRoute>
           }
-       />
+       /> */}
         
       </Routes>
     </BrowserRouter>

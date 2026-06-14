@@ -54,30 +54,32 @@ export default function LoginForm({
 
         } else{
         
-           const cred: {email: string, password: string} = {
+            const cred: {email: string, password: string} = {
               "email": credential.email as string ,
               "password": credential.password as string 
             }
-             const response = await fetch(`http://localhost:8000/${isHod ? "hod-login" : "student-login"} `, {
-               method: "POST",
-             headers: {
+            
+            const response = await fetch(`http://localhost:8000/${isHod ? "hod-login" : "student-login"} `, {
+              method: "POST",
+            headers: {
                "content-type": "application/json"
                },
                body:JSON.stringify(cred)
               
-             })
-            
+            })
+
              const data = await response.json() 
               if (response.status === 200) {
                 console.log("This what my backend sent:", data);
-              sessionStorage.setItem("isAuth", "true"),
-              sessionStorage.setItem("user_type", data.data.user_type)
-              sessionStorage.setItem("user_id", data.data.user_id)
-               if (data.data.user_type === "hod") {
-                navigate("/dashboard/hod")
-               } else  if (data.data.user_type === "student") {
-                navigate("/dashboard/student")
-              }
+                sessionStorage.setItem("isAuth", "true");
+                sessionStorage.setItem("user_type", data.data.user_type)
+                sessionStorage.setItem("user_id", data.data.user_id)
+                navigate("/dashboard")
+              //  if (data.data.user_type === "hod") {
+              //   navigate("/dashboard/hod")
+              //  } else  if (data.data.user_type === "student") {
+              //   navigate("/dashboard/student")
+              // }
               
            } else {
                navigate("/login")

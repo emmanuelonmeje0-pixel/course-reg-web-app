@@ -1,1 +1,220 @@
-[{"student_id":"AMUP/sci/comp/122","dept":"Comp","session":"2023","semester":"first","courses_offered":[{"course_id":"101","course_title":"AAAAAA!","score":72,"credit_load":3,"required":"true","scale":5},{"course_id":"102","course_title":"HHHHHH!","score":76,"credit_load":3,"required":"true","scale":5},{"course_id":"103","course_title":"ZZZZZZ!","score":90,"credit_load":3,"required":"true","scale":5}],"total_course":7,"gpa":"5.00","total_credit_load":9},{"student_id":"AMUP/sci/comp/122","dept":"Comp","session":"2023","semester":"second","courses_offered":[{"course_id":"101","course_title":"AAAAAA","score":61,"credit_load":3,"required":"true"},{"course_id":"102","course_title":"HHHHHH","score":40,"credit_load":3,"required":"true"},{"course_id":"103","course_title":"ZZZZZZ","score":55,"credit_load":3,"required":"true"}],"total_course":7,"gpa":3.01,"total_credit_load":9},{"student_id":"AMUP/sci/comp/123","dept":"Comp","session":"2023","semester":"first","courses_offered":[{"course_id":"101","course_title":"XXXXXX","score":75,"credit_load":3,"required":"true","scale":5},{"course_id":"102","course_title":"PPPPPP","score":70,"credit_load":3,"required":"true","scale":5},{"course_id":"103","course_title":"UUUUUU","score":69,"credit_load":3,"required":"true","scale":4}],"total_course":7,"gpa":"4.67","total_credit_load":9}]
+[
+  {
+    "student_id": "AMUP/sci/comp/122",
+    "dept": "Comp",
+    "session": "2023",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "AAAAAA!",
+        "score": 72,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 5
+      },
+      {
+        "course_id": "102",
+        "course_title": "HHHHHH!",
+        "score": 76,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 5
+      },
+      {
+        "course_id": "103",
+        "course_title": "ZZZZZZ!",
+        "score": 90,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 5
+      }
+    ],
+    "total_course": 7,
+    "gpa": "5.00",
+    "total_credit_load": 9
+  },
+  {
+    "student_id": "AMUP/sci/comp/122",
+    "dept": "Comp",
+    "session": "2023",
+    "semester": "second",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "AAAAAA",
+        "score": 61,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "102",
+        "course_title": "HHHHHH",
+        "score": 40,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "103",
+        "course_title": "ZZZZZZ",
+        "score": 55,
+        "credit_load": 3,
+        "required": "true"
+      }
+    ],
+    "total_course": 7,
+    "gpa": 3.01,
+    "total_credit_load": 9
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "Comp",
+    "session": "2023",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "XXXXXX",
+        "score": 75,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 5
+      },
+      {
+        "course_id": "102",
+        "course_title": "PPPPPP",
+        "score": 70,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 5
+      },
+      {
+        "course_id": "103",
+        "course_title": "UUUUUU",
+        "score": 69,
+        "credit_load": 3,
+        "required": "true",
+        "scale": 4
+      }
+    ],
+    "total_course": 7,
+    "gpa": "4.67",
+    "total_credit_load": 9
+  },
+  {
+    "student_id": "AMUP/sci/comp/122",
+    "dept": "comp",
+    "session": "2026",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "comp",
+    "session": "2026",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "102",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
+        "required": "true"
+      },
+      {
+        "course_id": "103",
+        "course_title": "C",
+        "score": 0,
+        "credit_load": 2,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "comp",
+    "session": "2026",
+    "semester": "second",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "102",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
+        "required": "true"
+      },
+      {
+        "course_id": "103",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "104",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
+        "required": "true"
+      },
+      {
+        "course_id": "105",
+        "course_title": "C",
+        "score": 0,
+        "credit_load": 2,
+        "required": "true"
+      }
+    ]
+  },
+  {
+    "student_id": "AMUP/sci/comp/123",
+    "dept": "comp",
+    "session": "2025",
+    "semester": "first",
+    "courses_offered": [
+      {
+        "course_id": "101",
+        "course_title": "A",
+        "score": 0,
+        "credit_load": 3,
+        "required": "true"
+      },
+      {
+        "course_id": "102",
+        "course_title": "B",
+        "score": 0,
+        "credit_load": 4,
+        "required": "true"
+      },
+      {
+        "course_id": "103",
+        "course_title": "C",
+        "score": 0,
+        "credit_load": 2,
+        "required": "true"
+      }
+    ]
+  }
+]
